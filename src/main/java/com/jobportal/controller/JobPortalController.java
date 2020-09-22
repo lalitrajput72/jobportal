@@ -1,5 +1,6 @@
 package com.jobportal.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class JobPortalController {
 		return new ResponseEntity<List<JobPortal>>(jobPortalService.findByExperience(experience),new HttpHeaders(),HttpStatus.OK);
 	}
 	
+	
 	@GetMapping("/findByDesignation/{designation}")
 	public ResponseEntity<List<JobPortal>> findByDesignation(@PathVariable("designation") String designation){
 		return new ResponseEntity<List<JobPortal>>(jobPortalService.findByDesignationCode(designation),new HttpHeaders(),HttpStatus.OK);
@@ -42,4 +44,5 @@ public class JobPortalController {
 	public ResponseEntity<JobPortal> createJob(@RequestBody JobPortal newJob){
 		return new ResponseEntity<JobPortal>(jobPortalService.save(newJob),new HttpHeaders(),HttpStatus.OK);
 	}
+	
 }
